@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QCM Interactif</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<div class="question">
+  <h2>What aspect of commercial culture is essential to thrive in the business world according to the text?</h2>
+  <input type="radio" name="question1" value="a"> a) Intercultural communication<br>
+  <input type="radio" name="question1" value="b"> b) Developing English language skills<br>
+  <input type="radio" name="question1" value="c"> c) Conflict management and change<br>
+  <input type="radio" name="question1" value="d"> d) Implementing marketing campaigns<br>
+  <button onclick="checkAnswer('question1')">Check Answer</button>
+</div>
+
+<div class="question">
+  <h2>Which example is given to illustrate the effective use of bilingual advertising campaigns in Cameroon?</h2>
+  <input type="radio" name="question2" value="a"> a) MTN, Guinness<br>
+  <input type="radio" name="question2" value="b"> b) Dangote Cement, MTN<br>
+  <input type="radio" name="question2" value="c"> c) Guinness, Coca-Cola<br>
+  <input type="radio" name="question2" value="d"> d) Guinness, Dangote Cement<br>
+  <button onclick="checkAnswer('question2')">Check Answer</button>
+</div>
+
+<div class="question">
+  <h2>What is the fundamental pillar of any successful marketing strategy according to the text?</h2>
+  <input type="radio" name="question3" value="a"> a) Creative advertising<br>
+  <input type="radio" name="question3" value="b"> b) In-depth market analysis<br>
+  <input type="radio" name="question3" value="c"> c) Building trustful relationships with potential customers<br>
+  <input type="radio" name="question3" value="d"> d) Utilizing digital platforms<br>
+  <button onclick="checkAnswer('question3')">Check Answer</button>
+</div>
+
+<div class="question">
+  <h2>How have companies like Dangote Cement succeeded in establishing trustful relationships with local communities in Cameroon?</h2>
+  <input type="radio" name="question4" value="a"> a) By offering free products<br>
+  <input type="radio" name="question4" value="b"> b) By investing in social responsibility initiatives<br>
+  <input type="radio" name="question4" value="c"> c) By lowering the prices of their products<br>
+  <input type="radio" name="question4" value="d"> d) By launching massive advertising campaigns<br>
+  <button onclick="checkAnswer('question4')">Check Answer</button>
+</div>
+
+<div class="question">
+  <h2>What happens when the fusion between multilingual marketing and authentic customer relations occurs?</h2>
+  <input type="radio" name="question5" value="a"> a) Marketing campaigns become less effective<br>
+  <input type="radio" name="question5" value="b"> b) Companies lose their influence in the market<br>
+  <input type="radio" name="question5" value="c"> c) Companies thrive and have a positive impact on communities<br>
+  <input type="radio" name="question5" value="d"> d) Customers become skeptical and hesitant to purchase<br>
+  <button onclick="checkAnswer('question5')">Check Answer</button>
+</div>
+
+<script>
+var correctAnswers = {
+  "question1": "b",
+  "question2": "a",
+  "question3": "c",
+  "question4": "b",
+  "question5": "c"
+};
+
+var choices = {
+  "question1": ["a) Intercultural communication", "b) Developing English language skills", "c) Conflict management and change", "d) Implementing marketing campaigns"],
+  "question2": ["a) MTN, Guinness", "b) Dangote Cement, MTN", "c) Guinness, Coca-Cola", "d) Guinness, Dangote Cement"],
+  "question3": ["a) Creative advertising", "b) In-depth market analysis", "c) Building trustful relationships with potential customers", "d) Utilizing digital platforms"],
+  "question4": ["a) By offering free products", "b) By investing in social responsibility initiatives", "c) By lowering the prices of their products", "d) By launching massive advertising campaigns"],
+  "question5": ["a) Marketing campaigns become less effective", "b) Companies lose their influence in the market", "c) Companies thrive and have a positive impact on communities", "d) Customers become skeptical and hesitant to purchase"]
+};
+
+function checkAnswer(questionId) {
+  var userAnswer = document.querySelector('input[name="' + questionId + '"]:checked');
+  if (!userAnswer) {
+    alert("Please select an answer.");
+    return;
+  }
+
+  var userChoice = userAnswer.value;
+  var correctAnswer = correctAnswers[questionId];
+  var feedback = "";
+
+  if (userChoice === correctAnswer) {
+    feedback = "Correct!";
+  } else {
+    var correctIndex = correctAnswer.charCodeAt(0) - 97;
+    feedback = "Incorrect. The correct answer is: " + choices[questionId][correctIndex];
+  }
+
+  alert(feedback);
+}
+</script>
+
+</body>
+</html>
